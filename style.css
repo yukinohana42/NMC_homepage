@@ -1,161 +1,156 @@
 /* =========================================================
-   Variables based on Slide 5 Colors
+   基本設定＆変数
 ========================================================= */
 :root {
-    --primary-color: #0056b3; /* Professional Blue */
-    --accent-teal:   #5D9C9F; /* Sustainability */
-    --accent-green:  #7FB984; /* Well-Being */
-    --accent-yellow: #F4C455; /* Professionalism (Core) */
-    --accent-orange: #F29E53; /* Evolution */
-    --accent-red:    #F38575; /* Collaboration */
+    --primary-color: #0056b3;          /* メインの青 */
+    --primary-color-light: #e6f0ff;
+    --accent-teal:   #5D9C9F;          /* Sustainability */
+    --accent-green:  #7FB984;          /* Well-Being */
+    --accent-yellow: #F4C455;          /* Professionalism */
+    --accent-orange: #F29E53;          /* Evolution */
+    --accent-red:    #F38575;          /* Collaboration */
     --text-dark:     #333333;
-    --text-light:    #666666;
-    --bg-light:      #f9fbfd;
-    --white:         #ffffff;
-    --font-base:     'Noto Sans JP', sans-serif;
+    --text-light:    #777777;
+    --bg-light:      #f5f7fb;
+    --container-width: 1080px;
+    --radius-card: 18px;
+    --shadow-soft: 0 15px 40px rgba(0, 0, 0, 0.06);
+    --transition-fast: 0.3s ease;
+    --font-main: "Noto Sans JP", system-ui, -apple-system,
+                 BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* =========================================================
-   Reset & Base
-========================================================= */
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     padding: 0;
 }
+
 body {
-    font-family: var(--font-base);
-    line-height: 1.6;
+    font-family: var(--font-main);
     color: var(--text-dark);
-}
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s;
-}
-ul {
-    list-style: none;
+    background-color: #ffffff;
+    line-height: 1.7;
 }
 
-/* =========================================================
-   Components
-========================================================= */
+/* 共通レイアウト */
 .container {
-    max-width: 1100px;
+    width: 100%;
+    max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .section {
     padding: 80px 0;
 }
+
 .section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
+
 .section-subtitle {
-    color: var(--accent-teal);
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    color: var(--accent-teal);
+    display: block;
+    margin-bottom: 8px;
 }
+
 .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-}
-.btn-primary {
-    background: var(--accent-red);
-    color: #fff;
-    border: 2px solid var(--accent-red);
-}
-.btn-primary:hover {
-    background: #d97466;
-    border-color: #d97466;
-}
-.btn-outline {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-}
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-.btn-large {
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    margin: 10px;
-}
-
-/* Hero専用ボタン（ヘッダーと同じ青） */
-.btn-hero {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-}
-.btn-hero:hover {
-    background: #00408a;
-    border-color: #00408a;
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--text-dark);
 }
 
 /* =========================================================
-   Header
+   ヘッダー
 ========================================================= */
 .header {
-    position: fixed;
-    width: 100%;
+    position: sticky;
     top: 0;
-    left: 0;
+    z-index: 50;
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    z-index: 1000;
-    padding: 15px 0;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eef1f6;
 }
+
 .header-container {
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
+    padding: 12px 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    gap: 16px;
 }
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
+    margin: 0;
+    flex: 1;
     color: var(--primary-color);
 }
+
 .logo span {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-weight: 400;
     display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-light);
 }
+
 .nav ul {
+    list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 16px;
+    padding: 0;
+    margin: 0 16px 0 0;
 }
+
 .nav a {
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 4px 0;
+    position: relative;
 }
-.nav a:hover {
-    color: var(--accent-teal);
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width var(--transition-fast);
 }
+
+.nav a:hover::after {
+    width: 100%;
+}
+
 .cta-btn-header {
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 999px;
     background: var(--primary-color);
     color: #fff;
-    padding: 8px 20px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.cta-btn-header:hover {
+    background: #003f88;
+    transform: translateY(-1px);
 }
 
 /* =========================================================
@@ -186,7 +181,7 @@ ul {
     inset: 0;
     background-image: url("images/hero-photo.jpg");
     background-size: cover;
-    background-position: center 30%;
+    background-position: center;
     opacity: 0.25;   /* 写真の濃さ：0.2〜0.4で調整 */
     z-index: 1;
 }
@@ -196,29 +191,21 @@ ul {
     z-index: 2;
     max-width: 800px;
     padding: 20px;
-
-    /* 最初は見えない＆少し下にしておく */
-    opacity: 0;
-    transform: translateY(30px);
-
-    /* 0.8秒待ってから 0.9秒かけてフワッと表示 */
-    animation: fadeInUp 0.9s ease-out 0.5s forwards;
 }
-
 .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 2.0rem;
     margin-bottom: 20px;
     color: var(--accent-teal);
     font-weight: 700;
 }
 .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.2;
+    font-size: 4.0rem;
+    line-height: 1.8;
     margin-bottom: 25px;
     color: var(--text-dark);
 }
 .hero-sub {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     color: var(--text-light);
     margin-bottom: 40px;
 }
@@ -228,6 +215,58 @@ ul {
     gap: 20px;
     flex-wrap: wrap;
 }
+
+/* ヒーロー文字＆ボタン：最初は見えない状態 */
+.hero-fade {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* =========================================================
+   Buttons（共通ボタン）
+========================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+/* ヘッダーと同じ色の基本ボタン */
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.25);
+}
+
+.btn-primary:hover {
+    background: #003f88;
+    border-color: #003f88;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(0, 86, 179, 0.32);
+}
+
+/* ヒーロー専用の微調整（必要なら） */
+.btn-hero {
+    /* いまは色は .btn-primary に任せるので空でOK。
+       もしヒーローだけ余白を変えたいときはここに書く */
+}
+
+/* 既存の .btn-large の指定を活かしてOK */
 
 /* =========================================================
    MVV - Mission / Vision / Values
@@ -306,34 +345,21 @@ ul {
 .v-col  { background-color: var(--accent-red); }
 
 /* =========================================================
-   Program Features
+   プログラムの特徴セクション
 ========================================================= */
-.bg-light {
-    background-color: var(--bg-light);
-}
-/* プログラムの特徴セクション 背景画像つき */
 .program-section {
     position: relative;
+    background: #eaf3fb;
     overflow: hidden;
-
-    /* うっすら水色グラデーションの上に写真を重ねる */
-    background: linear-gradient(
-        180deg,
-        rgba(249, 251, 253, 0.95) 0%,
-        rgba(249, 251, 253, 1) 100%
-    );
 }
 
-/* 長崎の写真を薄く敷く */
+/* 背景に長崎の写真を薄く表示 */
 .program-section::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("images/nagasaki.png");
-    background-size: cover;
-    background-position: center 60%;  /* 見せたい位置に応じて 50〜80% で調整 */
-    opacity: 0.18;                    /* 写真の濃さ：0.1〜0.3で好みに調整 */
-    z-index: 1;
+    background: url("images/nagasaki.png") center/cover no-repeat;
+    opacity: 0.22;
 }
 
 /* 中身（カードなど）は前面に */
@@ -341,56 +367,74 @@ ul {
     position: relative;
     z-index: 2;
 }
+
+.bg-light {
+    background: #eaf3fb;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-bottom: 50px;
 }
+
 .feature-card {
     background: #fff;
     padding: 40px 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    transition: 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 .feature-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
-.feature-card h4 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
+
+/* アイコンの共通枠 */
 .icon-box {
-    width: 52px;                 /* アイコンエリアの横幅を固定 */
-    height: 52px;                /* アイコンエリアの高さを固定 */
-    display: flex;               /* 中身を中央揃えにする */
+    width: 52px;
+    height: 52px;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
     color: var(--accent-teal);
-    font-size: 2.2rem;           /* Font Awesome アイコンのサイズ */
+    font-size: 2.2rem;
 }
 
-/* Font Awesome アイコン用 */
 .icon-box i {
     display: block;
     line-height: 1;
 }
 
-/* 画像アイコン用（みんほす！ロゴなど） */
+/* 画像アイコン（みんほす！ロゴなど） */
 .icon-box .icon-image {
-    width: 100%;                 /* .icon-box の中いっぱいに */
+    width: 100%;
     height: 100%;
-    object-fit: contain;         /* ロゴがつぶれないように */
+    object-fit: contain;
+    display: block;
 }
 
+.feature-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+/* キャリアパス */
 .career-path {
     background: #fff;
     padding: 40px 32px;
     border-radius: 12px;
     text-align: left;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.03);
 }
 
 /* 全体を縦方向に並べるコンテナ */
@@ -399,7 +443,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    overflow-x: auto;          /* スマホでは横スクロールで見られるように */
+    overflow-x: auto;
 }
 
 /* 1行分（Aさん・Bさん…） */
@@ -407,7 +451,7 @@ ul {
     display: grid;
     grid-template-columns: 160px repeat(5, minmax(110px, 1fr));
     gap: 8px;
-    min-width: 720px;          /* 画面が狭いときは横スクロール */
+    min-width: 720px;
     align-items: stretch;
 }
 
@@ -429,6 +473,7 @@ ul {
     font-weight: 700;
     color: #333;
 }
+
 .path-label small {
     display: block;
     margin-top: 4px;
@@ -437,177 +482,242 @@ ul {
     color: #666;
 }
 
-/* 年次のヘッダー行（卒後3〜7年目） */
+/* 年次のヘッダー行 */
 .path-row-header .path-cell {
     background: var(--primary-color);
     color: #fff;
     font-weight: 700;
 }
+
 .path-row-header .path-label {
     background: transparent;
 }
 
-/* レスポンシブ調整 */
-@media (max-width: 768px) {
-    .career-path {
-        padding: 24px 16px;
-    }
-    .path-row {
-        grid-template-columns: 130px repeat(5, minmax(90px, 1fr));
-        min-width: 640px;
-    }
-    .path-cell {
-        font-size: 0.8rem;
-    }
-}
-
-
 /* =========================================================
-   Staff / Message
+   志セクション（People & Culture）
 ========================================================= */
+.staff-section {
+    background: #ffffff;
+}
+
+/* 上部の「志とは？」カード */
 .message-box {
-    display: flex;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    padding: 32px 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: 32px;
     align-items: center;
-    gap: 50px;
-    background: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.message-text {
-    flex: 1;
-}
+
 .message-text h4 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: var(--text-dark);
+    font-size: 1.4rem;
+    margin: 0 0 12px;
 }
 
-/* 写真ボックス */
-.message-img {
-    flex: 1;
-    height: 300px;
-    border-radius: 8px;
-    overflow: hidden;
+.message-text p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
 }
 
-/* 中の画像をフィットさせる */
 .message-img img {
     width: 100%;
-    height: 100%;
+    border-radius: 18px;
     object-fit: cover;
     display: block;
 }
 
+/* 志セクション：メンバー紹介カード */
+.staff-cards {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+}
+
+.staff-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100%;
+}
+
+/* 写真エリア */
+.staff-photo {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+}
+
+.staff-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 役職＆名前 */
+.staff-meta {
+    margin-bottom: 10px;
+}
+
+.staff-role {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.staff-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 4px 0 0;
+    color: #222;
+}
+
+/* コメント文 */
+.staff-comment {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 8px;
+    flex: 1;
+}
+
 /* =========================================================
-   CTA Contact
+   Contact セクション
 ========================================================= */
 .contact-section {
-    background: linear-gradient(rgba(0,86,179,0.9), rgba(0,86,179,0.9)), url('path-to-bg.jpg');
-    background-size: cover;
-    color: #fff;
+    background: var(--bg-light);
     text-align: center;
 }
-.contact-section .contact-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+
+.contact-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
 }
+
 .contact-desc {
-    margin-bottom: 40px;
-    font-size: 1.1rem;
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+    color: var(--text-dark);
 }
-.contact-section .btn-outline {
-    color: #fff;
-    border-color: #fff;
-    margin-left: 15px;
+
+.cta-buttons {
+    margin-bottom: 16px;
 }
-.note {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    opacity: 0.8;
+
+.btn-large {
+    padding: 12px 32px;
+    font-size: 1rem;
+}
+
+.contact-section .note {
+    font-size: 0.85rem;
+    color: var(--text-light);
 }
 
 /* =========================================================
-   Footer
+   フッター
 ========================================================= */
 .footer {
-    background: #333;
-    color: #fff;
-    padding: 50px 0 20px;
+    background: #0b1020;
+    color: #d7dde8;
+    padding: 32px 0 20px;
+    font-size: 0.85rem;
 }
-.footer-info {
-    text-align: center;
-    margin-bottom: 30px;
+
+.footer-info h5 {
+    margin: 0 0 6px;
 }
-.social-links {
-    margin-top: 20px;
+
+.footer-info p {
+    margin: 0 0 10px;
 }
+
 .social-links a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background: rgba(255,255,255,0.1);
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    margin: 0 5px;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    margin-right: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background var(--transition-fast), transform var(--transition-fast);
 }
+
 .social-links a:hover {
-    background: var(--accent-teal);
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
 }
-.copyright {
-    text-align: center;
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
+
+.footer .copyright {
+    margin-top: 16px;
+    color: #8b92a8;
 }
 
 /* =========================================================
-   Responsive
+   レスポンシブ
 ========================================================= */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 10px;
+@media (max-width: 960px) {
+    .hero {
+        min-height: 60vh;
+        text-align: left;
     }
-    .nav ul {
-        gap: 15px;
-        font-size: 0.8rem;
-    }
+
     .hero-title {
         font-size: 2.2rem;
     }
-    .mvv-grid {
-        grid-template-columns: 1fr;
+
+    .header-container {
+        flex-wrap: wrap;
     }
+
+    .nav {
+        display: none; /* 必要なら簡易的に非表示。ハンバーガー実装するならここ変更 */
+    }
+
     .message-box {
-        flex-direction: column;
-    }
-    .message-img {
-        width: 100%;
-        height: 200px;
-    }
-    .cta-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .btn-large {
-        width: 100%;
-        margin: 0;
+        grid-template-columns: 1fr;
     }
 }
 
-/* =========================================================
-   Animation
-========================================================= */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .career-path {
+        padding: 28px 18px;
+    }
+
+    .path-row {
+        grid-template-columns: 130px repeat(5, minmax(90px, 1fr));
+        min-width: 640px;
+    }
+
+    .path-cell {
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        padding-top: 96px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
