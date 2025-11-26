@@ -179,7 +179,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("images/hero-photo.jpg");
+    background-image: url("images/hero-photo.png");
     background-size: cover;
     background-position: center;
     opacity: 0.25;   /* 写真の濃さ：0.2〜0.4で調整 */
