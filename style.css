@@ -341,8 +341,6 @@ ul {
     position: relative;
     z-index: 2;
 }
-
-
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -359,48 +357,110 @@ ul {
 .feature-card:hover {
     transform: translateY(-5px);
 }
-.icon-box {
-    font-size: 2.5rem;
-    color: var(--accent-teal);
-    margin-bottom: 20px;
-}
 .feature-card h4 {
     font-size: 1.3rem;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
+.icon-box {
+    width: 52px;                 /* アイコンエリアの横幅を固定 */
+    height: 52px;                /* アイコンエリアの高さを固定 */
+    display: flex;               /* 中身を中央揃えにする */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--accent-teal);
+    font-size: 2.2rem;           /* Font Awesome アイコンのサイズ */
+}
+
+/* Font Awesome アイコン用 */
+.icon-box i {
+    display: block;
+    line-height: 1;
+}
+
+/* 画像アイコン用（みんほす！ロゴなど） */
+.icon-box .icon-image {
+    width: 100%;                 /* .icon-box の中いっぱいに */
+    height: 100%;
+    object-fit: contain;         /* ロゴがつぶれないように */
+}
 
 .career-path {
     background: #fff;
-    padding: 40px;
+    padding: 40px 32px;
     border-radius: 12px;
-    text-align: center;
+    text-align: left;
 }
-.path-img-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.step {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 15px 30px;
-    border-radius: 8px;
+
+/* 全体を縦方向に並べるコンテナ */
+.path-table {
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    overflow-x: auto;          /* スマホでは横スクロールで見られるように */
 }
-.step span {
-    font-size: 0.8rem;
-    margin-top: 5px;
-    opacity: 0.8;
+
+/* 1行分（Aさん・Bさん…） */
+.path-row {
+    display: grid;
+    grid-template-columns: 160px repeat(5, minmax(110px, 1fr));
+    gap: 8px;
+    min-width: 720px;          /* 画面が狭いときは横スクロール */
+    align-items: stretch;
 }
-.arrow {
-    border-top: 2px solid #ccc;
-    width: 30px;
+
+/* 各マス共通の見た目 */
+.path-cell {
+    background: #f0f6ff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
 }
+
+/* 左端の「Aさん」「Bさん」ラベル */
+.path-label {
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    font-weight: 700;
+    color: #333;
+}
+.path-label small {
+    display: block;
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* 年次のヘッダー行（卒後3〜7年目） */
+.path-row-header .path-cell {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+}
+.path-row-header .path-label {
+    background: transparent;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .career-path {
+        padding: 24px 16px;
+    }
+    .path-row {
+        grid-template-columns: 130px repeat(5, minmax(90px, 1fr));
+        min-width: 640px;
+    }
+    .path-cell {
+        font-size: 0.8rem;
+    }
+}
+
 
 /* =========================================================
    Staff / Message
