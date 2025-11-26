@@ -13,7 +13,7 @@
 
     <header class="header">
         <div class="header-container">
-            <h1 class="logo">NMC <span>General Internal Medicine</span></h1>
+            <h1 class="logo">長崎医療センター　総合内科/総合診療科 <span>General Internal Medicine / Family Medicine</span></h1>
             <nav class="nav">
                 <ul>
                     <li><a href="#about">当科について</a></li>
@@ -26,16 +26,28 @@
     </header>
 
     <section class="hero">
-        <div class="hero-content">
+      <div class="hero-content">
             <p class="hero-tagline">Generalismを通じて<br>人々がその人らしく過ごせるように</p>
-            <h2 class="hero-title">最高峰の<br>Generalistであれ。</h2>
-            <p class="hero-sub">臨床・教育・研究を探究し、<br>全人的かつシームレスな医療を提供する。</p>
+            <h2 class="hero-title">最高峰の<br>Generalistであれ</h2>
+            <p class="hero-sub">臨床・教育・研究を探究し、<br>全人的かつシームレスな医療を提供する</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">専攻医募集要項を見る <i class="fas fa-arrow-right"></i></a>
+                 <!-- 専攻医募集要項 PDF -->
+                 <a href="PATH/TO/senkoiboshu.pdf"
+                    class="btn btn-primary btn-hero"
+                    target="_blank" rel="noopener">
+                    専攻医募集要項を見る
+                 </a>
+
+                 <!-- 見学・相談用 PDF（パンフなど） -->
+                 <a href="PATH/TO/kengaku-guide.pdf"
+                    class="btn btn-primary btn-hero"
+                    target="_blank" rel="noopener">
+                    見学・相談する
+                 </a>
             </div>
-        </div>
-        <div class="hero-overlay"></div>
-        </section>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
 
     <section id="about" class="section mvv-section">
         <div class="container">
@@ -47,7 +59,7 @@
             <div class="mvv-grid">
                 <div class="mvv-card mission">
                     <h4>Mission</h4>
-                    <p>To support individuals in living true to themselves<br>Through the strengths of Generalism</p>
+                    <p>Generalismを通じて<br>人々がその人らしく過ごせるように</p>
                 </div>
                 <div class="mvv-card vision">
                     <h4>Vision</h4>
@@ -55,16 +67,33 @@
                 </div>
             </div>
 
-            <div class="values-container">
-                <h4 class="values-title">5つのValue</h4>
+                        <!-- ここから Values カード -->
+            <div class="values-card mvv-card">
+                <h4 class="values-title">Values</h4>
                 <div class="values-flower">
-                    <div class="value-item v-pro"><span>Professionalism</span><small>全ては患者のために</small></div>
-                    <div class="value-item v-well"><span>Well-Being</span><small>自分と仲間の幸せ</small></div>
-                    <div class="value-item v-sus"><span>Sustainability</span><small>未来を育む</small></div>
-                    <div class="value-item v-evo"><span>Evolution</span><small>挑戦・変化・成長</small></div>
-                    <div class="value-item v-col"><span>Collaboration</span><small>調和とより良い社会</small></div>
+                    <div class="value-item v-pro">
+                        <span>Professionalism</span>
+                        <small>全ては患者のために</small>
+                    </div>
+                    <div class="value-item v-well">
+                        <span>Well-Being</span>
+                        <small>自分と仲間の幸せ</small>
+                    </div>
+                    <div class="value-item v-sus">
+                        <span>Sustainability</span>
+                        <small>未来を育む</small>
+                    </div>
+                    <div class="value-item v-evo">
+                        <span>Evolution</span>
+                        <small>挑戦・変化・成長</small>
+                    </div>
+                    <div class="value-item v-col">
+                        <span>Collaboration</span>
+                        <small>調和とより良い社会</small>
+                    </div>
                 </div>
             </div>
+            <!-- ここまで Values カード -->
         </div>
     </section>
 
@@ -116,12 +145,12 @@
             
             <div class="message-box">
                 <div class="message-text">
-                    <h4>志（Shishi）とは？</h4>
+                    <h4>志(こころざし)とは？</h4>
                     <p>それは自らの生きた証であり、人生哲学です。<br>NMC総合内科では、客観視・自問自答・新たな目標設定のサイクルを通じて、あなたの「志」の醸成を支援します。</p>
                     <p>決して一人ではありません。屋根瓦式の指導体制と、心理的安全性の高いチームがあなたの成長を支えます。</p>
                 </div>
                 <div class="message-img">
-                    <div class="img-placeholder">Team Photo</div>
+                    <img src="images/kokorozashi.png" alt="長崎医療センター総合内科のチーム写真">
                 </div>
             </div>
         </div>
