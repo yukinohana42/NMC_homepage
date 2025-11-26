@@ -311,6 +311,38 @@ ul {
 .bg-light {
     background-color: var(--bg-light);
 }
+/* プログラムの特徴セクション 背景画像つき */
+.program-section {
+    position: relative;
+    overflow: hidden;
+
+    /* うっすら水色グラデーションの上に写真を重ねる */
+    background: linear-gradient(
+        180deg,
+        rgba(249, 251, 253, 0.95) 0%,
+        rgba(249, 251, 253, 1) 100%
+    );
+}
+
+/* 長崎の写真を薄く敷く */
+.program-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("images/nagasaki.png");
+    background-size: cover;
+    background-position: center 60%;  /* 見せたい位置に応じて 50〜80% で調整 */
+    opacity: 0.18;                    /* 写真の濃さ：0.1〜0.3で好みに調整 */
+    z-index: 1;
+}
+
+/* 中身（カードなど）は前面に */
+.program-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
