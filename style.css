@@ -721,3 +721,16 @@ body {
         align-items: flex-start;
     }
 }
+
+
+/* ふつう（PC）のときの基準フォントサイズ */
+html {
+  font-size: 16px;
+}
+
+/* タブレット・スマホなど、画面幅が小さいときだけ一回り小さくする */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 14px;  /* ← ここを好きなサイズに調整してOK */
+  }
+}
